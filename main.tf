@@ -1,14 +1,15 @@
-provider "aws"{
-	region = "us-east-1"
+provider "aws" {
+  region = "ap-southeast-2"
 
 }
 
-resource "aws_instance" "vm" {
-	
-	ami = "ami-0d5eff06f840b45e9"
-	subnet_id = "subnet-0df748d47e6f035bf"
-	instance_type = "t3.micro"
-	tags = {
-			Name = "my-first-tf-node"
-	}
+resource "aws_instance" "wp_nodb" {
+
+  ami           = "ami-0c2d0cd1e417310e1"
+  subnet_id     = "subnet-75632c2d"
+  instance_type = "t2.micro"
+  security_groups = [var.security_groups]
+  tags = {
+    Name = var.instance_name
+  }
 }
