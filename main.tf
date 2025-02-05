@@ -13,3 +13,5 @@ resource "aws_instance" "wp_nodb" {
     Name = var.instance_name
   }
 }
+
+#okay
